@@ -22,7 +22,7 @@ export default function Home() {
 
   var quizquestion;
   var quizoption;
-  let answbtn = document.getElementsByClassName("answbtn");
+  // let answbtn = document.getElementsByClassName("answbtn");
   let main = useRef();
   let yscore = useRef();
   let yscore1 = useRef();
