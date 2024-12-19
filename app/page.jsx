@@ -27,6 +27,7 @@ export default function Home() {
   let yscore = useRef();
   let yscore1 = useRef();
   let ynext = useRef();
+  let opref =useRef();
 
 
   const handleStart = async () => {
@@ -78,11 +79,12 @@ export default function Home() {
   const handleanswer = (e) => {
     if (quizoption[counter][quizanswer[counter]] == e.target.innerHTML) {
       ynext.current.disabled = false;
-      let i;
+      // let i;
       e.target.classList.add("text-bg-success");
-      for (i = 0; i < quizoption[0].length; i++) {
-        answbtn[i].disabled = true;
-      }
+      // for (i = 0; i < quizoption[0].length; i++) {
+      //   answbtn[i].disabled = true;
+      // }
+      opref.disabled=true;
       let str=yscore1.current.innerText;
       if(hintsh==true){
         yscore1.current.innerHTML=eval(str + "+" + "5");
@@ -93,7 +95,7 @@ export default function Home() {
     }
     else {
       ynext.current.disabled = false;
-      answbtn[quizanswer[counter]].classList.add("text-bg-success");
+      // answbtn[quizanswer[counter]].classList.add("text-bg-success");
       e.target.classList.add("text-bg-danger");
     }
   }
@@ -115,7 +117,7 @@ export default function Home() {
               {quizoption[counter].map((item) => {
                 return (
                   <>
-                    <button key={v4()} onClick={handleanswer} className={`${styles.btn} answbtn`}>{item}</button>
+                    <button ref={opref} key={v4()} onClick={handleanswer} className={`${styles.btn} answbtn`}>{item}</button>
                   </>
                 )
               })};
