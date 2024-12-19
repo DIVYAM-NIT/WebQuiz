@@ -34,7 +34,7 @@ export default function Home() {
     setgamestart(true);
     setcounter(0);
     setcount(0);
-    let res = await fetch("/api");
+    let res = await fetch("https://web-quiz-n7yp.vercel.app/api");
     let data = await res.json();
     setquizquestion(data.data[0].Questions);
     setquizoption(data.data[1].Options);
